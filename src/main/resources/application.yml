@@ -1,0 +1,16 @@
+spring:
+  profiles: development
+credentialpath : C://Udemy//Angular//Limelab-2//keystore//UTC--2018-01-11T17-38-46.205000000Z--f192d7eaf60b8d16e31bf3098b8e599c90073dfd.json
+exchangeContractAddress : "0x3b570ff040afa0cc5e499f92310dce7e4ab34e8a"
+tokenContractAddress : "0x8a8467feb0db940f481a8265387651c1419ecb73"
+password : Test1234
+web3jprovider : "http://localhost:8545"   
+
+---  
+spring:  
+  profiles: test
+credentialpath : C://Udemy//Angular//Limelab-2//keystore//UTC--2018-01-05T17-30-39.593000000Z--96d17f676a0ec53ef11b84c3cf6604ac12363f69.json
+exchangeContractAddress : "0xDa597BBDb8ECB0917237761d0C597583d6C8F402"
+tokenContractAddress : "0xe8dd90bf109cfbba80ee66c98b0f1f96fb1531dd"
+password : Test1234
+web3jprovider : "https://rinkeby.infura.io/TrDfxWjmBq2W7KmHve5e"
