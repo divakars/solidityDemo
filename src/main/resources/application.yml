@@ -1,8 +1,8 @@
 spring:
   profiles: development
 credentialpath : C://Udemy//Angular//Limelab-2//keystore//UTC--2018-01-11T17-38-46.205000000Z--f192d7eaf60b8d16e31bf3098b8e599c90073dfd.json
-exchangeContractAddress : "0x3b570ff040afa0cc5e499f92310dce7e4ab34e8a"
-tokenContractAddress : "0x8a8467feb0db940f481a8265387651c1419ecb73"
+exchangeContractAddress : "0x804ffe0a87a2febe22d0a46368f8d05f6c4b7e80"
+tokenContractAddress : "0xbad0e09464afd1f6ecb29283b6b2df56333442ae" 
 password : Test1234
 web3jprovider : "http://localhost:8545"   
 

@@ -44,7 +44,7 @@ public class ContractDemoController {
 	private String web3jprovider;
 
 	@RequestMapping("/getOrderBook")
-	public ServiceResponse getOrderBook(@RequestParam(value = "tokenSymbol") String tokenSymbol) {
+	public ServiceResponse getOrderBook(@RequestParam(value = "tokenSymbol") String tokenSymbol, @RequestParam(value = "orderType") String orderType ) {
 
 		ArrayList<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
 		ServiceResponse response = new ServiceResponse();
@@ -86,12 +86,21 @@ public class ContractDemoController {
 			log.info(" Does the Exchange have " + tokenSymbol + "  symbol  " + isTokenPresent);
 
 			if (isTokenPresent) {
-
-				// Retrieve Order Details
-				tuple2 = exchangeContract.getSellOrderBook(tokenSymbol).send();
+				
+				if (!StringUtils.isEmpty(orderType) && "SELL".equals(orderType)) {
+					log.info(" Sell Order Book Details Requested ");
+					// Retrieve Sell Order Details
+					tuple2 = exchangeContract.getSellOrderBook(tokenSymbol).send();
+					
+				}else {
+					log.info(" Buy Order Book Details Requested ");
+					tuple2 = exchangeContract.getBuyOrderBook(tokenSymbol).send();
+				}
 
 				if (null != tuple2 && tuple2.getSize() >= 1) {
-
+					
+					log.info(" Sell Order Book Details Received ");
+					
 					List quantityList = tuple2.getValue2();
 					List costList = tuple2.getValue1();
 
@@ -111,7 +120,7 @@ public class ContractDemoController {
 					}
 
 				}
-
+				log.info(" Sell Order Book Details Sent ");
 				response.setStatus("SUCCESS");
 				response.setMessage("Order Book Details Retrieved for Symbol : " + tokenSymbol);
 				response.setOrderDetailList(orderDetailList);
